@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Đăng Ký
+            Mua hàng
           </Button>
         </div>
       </div>

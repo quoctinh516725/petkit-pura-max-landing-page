@@ -8,6 +8,8 @@ import { addToCart } from '../../store/slices/cartSlice';
 import { toggleFavorite } from '../../store/slices/favoritesSlice';
 import { addViewedProduct } from '../../store/slices/viewedSlice';
 
+import { LazyImage } from '../ui/LazyImage';
+
 interface ProductPack {
   id: string;
   name: string;
@@ -18,6 +20,19 @@ interface ProductPack {
   gifts: string[];
   desc: string;
 }
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (idx: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: idx * 0.15,
+      duration: 0.6,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  }),
+};
 
 export const ProductShop: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -124,7 +139,7 @@ export const ProductShop: React.FC = () => {
 
         {/* Product Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
-          {products.map((product) => {
+          {products.map((product, idx) => {
             const isFavorite = favoriteItems.some((item) => item.id === product.id);
             const inCart = cartItems.some((item) => item.id === product.id && item.variant === product.variant);
 
@@ -132,6 +147,11 @@ export const ProductShop: React.FC = () => {
               <motion.div
                 key={product.id}
                 onMouseEnter={() => handleProductHover(product)}
+                custom={idx}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-50px' }}
                 className="flex"
               >
                 <Card
@@ -146,12 +166,13 @@ export const ProductShop: React.FC = () => {
                   )}
 
                   <div>
-                    {/* Image */}
+                    {/* LazyImage with skeleton */}
                     <div className="w-full aspect-square rounded-2xl bg-brand-teal/5 border border-brand-teal/10 flex items-center justify-center p-6 mb-6 relative group overflow-hidden">
-                      <img
+                      <LazyImage
                         src={product.image}
                         alt={product.name}
                         className="w-full h-auto max-h-full object-contain filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.1)] group-hover:scale-105 transition-transform duration-500"
+                        wrapperClassName="w-full h-full flex items-center justify-center"
                       />
                     </div>
 

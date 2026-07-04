@@ -156,7 +156,7 @@ export const ChatWidget: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.85, x: 20 }}
                   animate={{ opacity: 1, scale: 1, x: 0 }}
                   exit={{ opacity: 0, scale: 0.85, x: 10 }}
-                  className="relative flex items-center gap-2 bg-gradient-to-r from-brand-coral to-brand-teal pl-3 pr-8 py-2.5 rounded-full shadow-lg shadow-brand-teal/25 border border-brand-teal/30"
+                  className="relative flex items-center gap-2 bg-gradient-to-r from-[#ff2f38] to-[#ff5252] pl-3 pr-8 py-2.5 rounded-full shadow-lg shadow-red-500/25 border border-red-500/30"
                 >
                   {/* Small avatar inside tooltip */}
                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0">
@@ -180,7 +180,7 @@ export const ChatWidget: React.FC = () => {
                   </button>
 
                   {/* Small pointing triangle to the right */}
-                  <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-brand-teal" />
+                  <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-[#ff5252]" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -190,16 +190,16 @@ export const ChatWidget: React.FC = () => {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
-              className="w-14 h-14 rounded-full bg-brand-coral/10 hover:bg-brand-coral/20 border-2 border-brand-coral/20 shadow-lg flex items-center justify-center relative transition-colors duration-300 cursor-pointer shrink-0"
+              className="w-14 h-14 rounded-full bg-[#ffeaeb] hover:bg-[#ffd6d8] border-2 border-[#ffccd0] shadow-lg flex items-center justify-center relative transition-colors duration-300 cursor-pointer shrink-0"
               aria-label="Trò chuyện với robot"
             >
-              {/* Cute Brand Teal Robot Icon inside */}
-              <div className="w-11 h-11 rounded-full bg-brand-teal flex items-center justify-center shadow-inner">
+              {/* Cute Red Robot Icon inside */}
+              <div className="w-11 h-11 rounded-full bg-[#ff2f38] flex items-center justify-center shadow-inner">
                 <Bot className="w-6 h-6 text-white" />
               </div>
               
               {/* "..." chat bubble decoration above head */}
-              <div className="absolute -top-1.5 right-1 bg-white border border-brand-teal/20 rounded-lg px-1.5 py-0.5 shadow-sm text-[8px] font-black text-brand-teal tracking-widest uppercase">
+              <div className="absolute -top-1.5 right-1 bg-white border border-[#ffccd0] rounded-lg px-1.5 py-0.5 shadow-sm text-[8px] font-black text-[#ff2f38] tracking-widest uppercase">
                 •••
               </div>
             </motion.button>
@@ -217,10 +217,10 @@ export const ChatWidget: React.FC = () => {
             transition={{ type: 'spring', damping: 25, stiffness: 320 }}
             className="fixed bottom-6 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-white border border-slate-200 rounded-[2rem] shadow-2xl shadow-black/25 flex flex-col overflow-hidden text-slate-800"
           >
-            {/* Header styled exactly like GearVN (Brand-teal header, hamburger menu, logo, subtitle) */}
-            <div className="px-4 py-3 bg-brand-teal flex items-center gap-3 shrink-0 relative">
+            {/* Header styled exactly like GearVN (Red header, hamburger menu, logo, subtitle) */}
+            <div className="px-4 py-3 bg-[#ff2f38] flex items-center gap-3 shrink-0 relative">
               
-              {/* Logo / Avatar */}
+              {/* Logo / Avatar with V logo representation */}
               <div className="w-9 h-9 rounded-full bg-white/20 border border-white/30 flex items-center justify-center shrink-0">
                 <Bot className="w-5 h-5 text-white" />
               </div>
@@ -261,7 +261,7 @@ export const ChatWidget: React.FC = () => {
                     className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 shadow-sm ${
                       msg.role === 'user'
                         ? 'bg-amber-100 text-amber-600'
-                        : 'bg-brand-teal/10 text-brand-teal'
+                        : 'bg-[#ffeaeb] text-[#ff2f38]'
                     }`}
                   >
                     {msg.role === 'user' ? (
@@ -273,7 +273,7 @@ export const ChatWidget: React.FC = () => {
                   <div
                     className={`max-w-[75%] px-4 py-2.5 text-[13px] leading-relaxed shadow-sm ${
                       msg.role === 'user'
-                        ? 'bg-brand-teal text-white rounded-2xl rounded-tr-none'
+                        ? 'bg-[#ff2f38] text-white rounded-2xl rounded-tr-none'
                         : 'bg-white text-slate-800 rounded-2xl rounded-tl-none border border-slate-100'
                     }`}
                   >
@@ -289,11 +289,11 @@ export const ChatWidget: React.FC = () => {
               {/* Typing indicator */}
               {isLoading && (
                 <div className="flex gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-brand-teal/10 text-brand-teal flex items-center justify-center shrink-0">
+                  <div className="w-7 h-7 rounded-full bg-[#ffeaeb] text-[#ff2f38] flex items-center justify-center shrink-0">
                     <Bot className="w-4 h-4" />
                   </div>
                   <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-none px-4 py-3 flex items-center gap-2 shadow-sm">
-                    <Loader2 className="w-3.5 h-3.5 text-brand-teal animate-spin" />
+                    <Loader2 className="w-3.5 h-3.5 text-[#ff2f38] animate-spin" />
                     <span className="text-xs text-slate-400 font-sans">Đang trả lời...</span>
                   </div>
                 </div>
@@ -309,7 +309,7 @@ export const ChatWidget: React.FC = () => {
                   <button
                     key={qr}
                     onClick={() => handleSend(qr)}
-                    className="text-[11px] font-black text-brand-teal border border-brand-teal/20 bg-white px-3 py-1.5 rounded-full hover:bg-brand-teal/5 transition"
+                    className="text-[11px] font-black text-[#ff2f38] border border-[#ffccd0] bg-white px-3 py-1.5 rounded-full hover:bg-[#ffeaeb] transition"
                   >
                     {qr}
                   </button>
@@ -342,7 +342,7 @@ export const ChatWidget: React.FC = () => {
                 <button
                   onClick={() => handleSend()}
                   disabled={!input.trim() || isLoading}
-                  className="w-8 h-8 rounded-full bg-brand-teal text-white flex items-center justify-center hover:bg-brand-teal/90 disabled:opacity-30 disabled:hover:bg-brand-teal transition shrink-0"
+                  className="w-8 h-8 rounded-full bg-[#ff2f38] text-white flex items-center justify-center hover:bg-[#e02029] disabled:opacity-30 disabled:hover:bg-[#ff2f38] transition shrink-0"
                   aria-label="Gửi tin nhắn"
                 >
                   <Send className="w-3.5 h-3.5" />

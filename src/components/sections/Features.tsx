@@ -1,6 +1,21 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
+import { LazyImage } from '../ui/LazyImage';
 import { RefreshCw, ShieldAlert, Smartphone } from 'lucide-react';
+
+const fVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (idx: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: idx * 0.1,
+      duration: 0.5,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  }),
+};
 
 export const Features: React.FC = () => {
   return (
@@ -34,96 +49,132 @@ export const Features: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           
           {/* Cell 1: Large Bento (Spans 2 columns) */}
-          <Card className="lg:col-span-2 flex flex-col justify-between group h-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
-                  <RefreshCw className="w-6 h-6 text-brand-teal" />
+          <motion.div
+            custom={0}
+            variants={fVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="lg:col-span-2 flex"
+          >
+            <Card className="flex flex-col justify-between group h-full w-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
+                    <RefreshCw className="w-6 h-6 text-brand-teal" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-brand-navy font-display">Lưới Lọc Cát Nam Châm Khử Mùi</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-brand-navy font-display">Lưới Lọc Cát Nam Châm Khử Mùi</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-8 max-w-xl">
+                  Cơ chế xoay sàng lọc phân thông minh của Pura Max 2 được nâng cấp với <strong>tấm lưới lọc nam châm hít từ tính</strong> đột phá, cho phép tháo rời nhanh chóng trong 1 giây để chùi rửa định kỳ mà không sợ gãy chốt.
+                </p>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-8 max-w-xl">
-                Cơ chế xoay sàng lọc phân thông minh của Pura Max 2 được nâng cấp với <strong>tấm lưới lọc nam châm hít từ tính</strong> đột phá, cho phép tháo rời nhanh chóng trong 1 giây để chùi rửa định kỳ mà không sợ gãy chốt.
-              </p>
-            </div>
-            <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
-              <img 
-                src="/src/assets/Petkit/anh1.webp" 
-                alt="Tự động sàng lọc phân mèo" 
-                className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
-                loading="lazy"
-              />
-            </div>
-          </Card>
+              <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
+                <LazyImage 
+                  src="/src/assets/Petkit/anh1.webp" 
+                  alt="Tự động sàng lọc phân mèo" 
+                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                  wrapperClassName="w-full h-full flex items-center justify-center"
+                />
+              </div>
+            </Card>
+          </motion.div>
 
           {/* Cell 2: Small Bento 1 */}
-          <Card className="lg:col-span-1 flex flex-col justify-between group h-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
-                  <ShieldAlert className="w-6 h-6 text-brand-teal" />
+          <motion.div
+            custom={1}
+            variants={fVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="lg:col-span-1 flex"
+          >
+            <Card className="flex flex-col justify-between group h-full w-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
+                    <ShieldAlert className="w-6 h-6 text-brand-teal" />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-navy font-display">Khử Mùi 3 Lớp Chuyên Sâu</h3>
                 </div>
-                <h3 className="text-xl font-bold text-brand-navy font-display">Khử Mùi 3 Lớp Chuyên Sâu</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Sự kết hợp hoàn hảo giữa thiết kế nắp hộp phân khép kín, miếng sáp khử mùi N50 triệt tiêu Amoniac và bộ xịt phun sương tinh dầu diệt khuẩn tự động Pura Air.
+                </p>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Sự kết hợp hoàn hảo giữa thiết kế nắp hộp phân khép kín, miếng sáp khử mùi N50 triệt tiêu Amoniac và bộ xịt phun sương tinh dầu diệt khuẩn tự động Pura Air.
-              </p>
-            </div>
-            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
-              <img 
-                src="/src/assets/Petkit/anh2.webp" 
-                alt="Bình xịt khử mùi Pura Air" 
-                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
-                loading="lazy"
-              />
-            </div>
-          </Card>
+              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
+                <LazyImage 
+                  src="/src/assets/Petkit/anh2.webp" 
+                  alt="Bình xịt khử mùi Pura Air" 
+                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
+                  wrapperClassName="w-full h-full flex items-center justify-center"
+                />
+              </div>
+            </Card>
+          </motion.div>
 
           {/* Cell 3: Small Bento 2 */}
-          <Card className="lg:col-span-1 flex flex-col justify-between group h-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
-                  <Smartphone className="w-6 h-6 text-brand-teal" />
+          <motion.div
+            custom={2}
+            variants={fVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="lg:col-span-1 flex"
+          >
+            <Card className="flex flex-col justify-between group h-full w-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
+                    <Smartphone className="w-6 h-6 text-brand-teal" />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-navy font-display">Theo Dõi Qua App</h3>
                 </div>
-                <h3 className="text-xl font-bold text-brand-navy font-display">Theo Dõi Qua App</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Ghi nhận dữ liệu cân nặng chuẩn xác của từng bé mèo, lịch trình đi vệ sinh chi tiết qua kết nối Wi-Fi/Bluetooth để sớm phát hiện các dấu hiệu bệnh tiết niệu.
+                </p>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Ghi nhận dữ liệu cân nặng chuẩn xác của từng bé mèo, lịch trình đi vệ sinh chi tiết qua kết nối Wi-Fi/Bluetooth để sớm phát hiện các dấu hiệu bệnh tiết niệu.
-              </p>
-            </div>
-            <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
-              <img 
-                src="/src/assets/Petkit/anh3.webp" 
-                alt="Theo dõi sức khỏe mèo qua app" 
-                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
-                loading="lazy"
-              />
-            </div>
-          </Card>
+              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
+                <LazyImage 
+                  src="/src/assets/Petkit/anh3.webp" 
+                  alt="Theo dõi sức khỏe mèo qua app" 
+                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
+                  wrapperClassName="w-full h-full flex items-center justify-center"
+                />
+              </div>
+            </Card>
+          </motion.div>
 
           {/* Cell 4: Small Bento 3 (Wide card) */}
-          <Card className="lg:col-span-2 flex flex-col justify-between group h-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
-                  <RefreshCw className="w-6 h-6 text-brand-teal" />
+          <motion.div
+            custom={3}
+            variants={fVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            className="lg:col-span-2 flex"
+          >
+            <Card className="flex flex-col justify-between group h-full w-full bg-white text-brand-navy border-none p-8 rounded-[2rem] shadow-xl">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
+                    <RefreshCw className="w-6 h-6 text-brand-teal" />
+                  </div>
+                  <h3 className="text-xl font-bold text-brand-navy font-display">Đế Khép Kín Chống Rò Rỉ Nước Tiểu</h3>
                 </div>
-                <h3 className="text-xl font-bold text-brand-navy font-display">Đế Khép Kín Chống Rò Rỉ Nước Tiểu</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  Công nghệ chắn nước tiểu thông minh <strong>ShieldBase</strong> cùng lớp lót cao su chống trầy xước siêu bền bỉ giúp khoang máy luôn khô ráo. Hộp chứa chất thải 7L kín mùi đảm bảo lưu trữ tới 15 ngày cho 1 bé mèo.
+                </p>
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Công nghệ chắn nước tiểu thông minh <strong>ShieldBase</strong> cùng lớp lót cao su chống trầy xước siêu bền bỉ giúp khoang máy luôn khô ráo. Hộp chứa chất thải 7L kín mùi đảm bảo lưu trữ tới 15 ngày cho 1 bé mèo.
-              </p>
-            </div>
-            <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
-              <img 
-                src="/src/assets/Petkit/anh6.webp" 
-                alt="Dung tích hộp chứa chất thải lớn" 
-                className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
-                loading="lazy"
-              />
-            </div>
-          </Card>
+              <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
+                <LazyImage 
+                  src="/src/assets/Petkit/anh6.webp" 
+                  alt="Dung tích hộp chứa chất thải lớn" 
+                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
+                  wrapperClassName="w-full h-full flex items-center justify-center"
+                />
+              </div>
+            </Card>
+          </motion.div>
 
         </div>
 

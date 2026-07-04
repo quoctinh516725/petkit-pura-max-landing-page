@@ -1,10 +1,26 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { Heart } from 'lucide-react';
+import { LazyImage } from '../ui/LazyImage';
+
+const sVariants = {
+  hidden: { opacity: 0, scale: 0.95, y: 30 },
+  visible: (idx: number) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      delay: idx * 0.1,
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 export const Social: React.FC = () => {
   const instagramPosts = [
-    { image: "/src/assets/Petkit/anh9.webp", author: "@mimi_the_cat", likes: 231, caption: "Hoàng thượng mê tít cái nhà vệ sinh mới này rồi, sạch bong kin kít! #petkitpuramax #catsofinstagram" },
+    { image: "/src/assets/Petkit/anh9.webp", author: "@mimi_the_cat", likes: 231, caption: "Hoàng hoàng thượng mê tít cái nhà vệ sinh mới này rồi, sạch bong kin kít! #petkitpuramax #catsofinstagram" },
     { image: "/src/assets/Petkit/anh10.webp", author: "@bun_petstore", likes: 512, caption: "Đi làm cả ngày về phòng không còn tí mùi khai nào luôn, đáng đồng tiền bát gạo thực sự! #happypet #smarthome" },
     { image: "/src/assets/Petkit/anh11.webp", author: "@kiki_house", likes: 189, caption: "Cảm biến nhạy kinh khủng, cứ mèo tiến lại gần là tự động đứng im ngay lập tức, cực kỳ an tâm! #petkit" },
     { image: "/src/assets/Petkit/anh12.webp", author: "@pate_petshop", likes: 420, caption: "Nuôi 3 bé mèo dọn tay xỉu lên xỉu xuống, giờ có em này rảnh rang cả tuần chỉ việc xách túi rác đi vứt!" }
@@ -44,33 +60,43 @@ export const Social: React.FC = () => {
         {/* Social Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {instagramPosts.map((post, idx) => (
-            <Card key={idx} className="bg-white text-brand-navy border-none p-5 rounded-[2rem] flex flex-col justify-between group shadow-lg">
-              
-              {/* Polaroid Image */}
-              <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 border border-slate-100 bg-slate-50">
-                <img 
-                  src={post.image} 
-                  alt={post.author} 
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
+            <motion.div
+              key={idx}
+              custom={idx}
+              variants={sVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
+              className="flex"
+            >
+              <Card className="bg-white text-brand-navy border-none p-5 rounded-[2rem] flex flex-col justify-between group shadow-lg w-full">
+                
+                {/* Polaroid Image */}
+                <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 border border-slate-100 bg-slate-50">
+                  <LazyImage 
+                    src={post.image} 
+                    alt={post.author} 
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
+                    wrapperClassName="w-full h-full"
+                  />
+                </div>
 
-              {/* Author & Likes */}
-              <div className="flex items-center justify-between mb-3 px-1">
-                <span className="text-sm font-bold text-brand-teal font-sans">{post.author}</span>
-                <span className="text-xs text-slate-500 flex items-center gap-1">
-                  <Heart className="w-3.5 h-3.5 fill-brand-coral stroke-none" />
-                  {post.likes}
-                </span>
-              </div>
+                {/* Author & Likes */}
+                <div className="flex items-center justify-between mb-3 px-1">
+                  <span className="text-sm font-bold text-brand-teal font-sans">{post.author}</span>
+                  <span className="text-xs text-slate-500 flex items-center gap-1">
+                    <Heart className="w-3.5 h-3.5 fill-brand-coral stroke-none" />
+                    {post.likes}
+                  </span>
+                </div>
 
-              {/* Caption */}
-              <p className="text-xs text-slate-600 leading-relaxed px-1">
-                {post.caption}
-              </p>
+                {/* Caption */}
+                <p className="text-xs text-slate-600 leading-relaxed px-1">
+                  {post.caption}
+                </p>
 
-            </Card>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
