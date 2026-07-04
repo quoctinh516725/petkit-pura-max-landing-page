@@ -15,10 +15,16 @@ export const Social: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20 relative">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display">
-            Trải nghiệm thực tế
-          </h2>
+        <div className="text-center max-w-2xl mx-auto mb-14 relative">
+          <h2 className="sr-only">Trải nghiệm thực tế</h2>
+          <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
+            <path id="social-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
+            <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <textPath href="#social-curve" startOffset="50%">
+                Trải nghiệm thực tế
+              </textPath>
+            </text>
+          </svg>
           <p className="text-white/90">
             Hàng ngàn gia đình nuôi mèo tại Việt Nam đã tin dùng để bảo vệ sức khỏe bé mèo và không gian sống.
           </p>

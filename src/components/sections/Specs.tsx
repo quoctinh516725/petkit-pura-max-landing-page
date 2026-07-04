@@ -3,13 +3,13 @@ import { Card } from '../ui/Card';
 
 export const Specs: React.FC = () => {
   const specItems = [
+    { label: "Dòng sản phẩm (Model)", value: "Pura Max 2 (Model P9902)" },
     { label: "Kích thước thiết bị", value: "620 x 538 x 552 mm" },
-    { label: "Dung tích lồng xoay", value: "76 Lít" },
-    { label: "Dung tích hộp gom phân", value: "7 Lít" },
-    { label: "Trọng lượng mèo phù hợp", value: "1.5 kg - 10 kg" },
-    { label: "Loại cát khuyên dùng", value: "Cát đất sét, cát hỗn hợp, cát đậu nành" },
-    { label: "Kết nối không dây", value: "Wi-Fi 2.4GHz" },
-    { label: "Công suất hoạt động", value: "24W" }
+    { label: "Dung tích lồng xoay", value: "76 Lít (Phù hợp nhà nhiều mèo)" },
+    { label: "Khay chứa chất thải", value: "7 Lít (Khép kín khử mùi, lưu trữ đến 15 ngày)" },
+    { label: "Chiều cao lối vào", value: "20 cm (Thân thiện mèo chân ngắn, mèo già)" },
+    { label: "Kết nối thông minh", value: "Wi-Fi 2.4GHz + Bluetooth" },
+    { label: "Loại cát tương thích", value: "Cát đất sét, cát đậu nành, cát hỗn hợp hữu cơ" }
   ];
 
   return (
@@ -18,12 +18,18 @@ export const Specs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display">
-            Thông Số Kỹ Thuật
-          </h2>
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <h2 className="sr-only">Thông Số Kỹ Thuật</h2>
+          <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
+            <path id="specs-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
+            <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <textPath href="#specs-curve" startOffset="50%">
+                Thông Số Kỹ Thuật
+              </textPath>
+            </text>
+          </svg>
           <p className="text-white/80">
-            Thông tin chi tiết về kích thước và khả năng hoạt động của Petkit Pura Max.
+            Thông tin chi tiết về kích thước và khả năng hoạt động của Petkit Pura Max 2.
           </p>
         </div>
 
@@ -35,7 +41,7 @@ export const Specs: React.FC = () => {
             <Card hoverEffect={true} className="w-full max-w-[340px] aspect-square rounded-[3rem] p-0 border-8 border-white bg-white overflow-hidden shadow-2xl">
               <img 
                 src="/src/assets/Petkit/anh5.webp" 
-                alt="Petkit Pura Max Technical Specs" 
+                alt="Petkit Pura Max 2 Technical Specs" 
                 className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
                 loading="lazy"
               />

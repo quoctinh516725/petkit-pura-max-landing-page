@@ -8,10 +8,23 @@ export const Features: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display">
-            Cách mạng hóa <span className="text-brand-yellow">trải nghiệm</span> dọn dẹp
-          </h2>
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <h2 className="sr-only">Cách mạng hóa trải nghiệm dọn dẹp</h2>
+          <svg viewBox="0 0 600 180" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
+            <path id="features-curve-1" d="M 20,75 Q 300,15 580,75" fill="none" />
+            <path id="features-curve-2" d="M 20,145 Q 300,85 580,145" fill="none" />
+            
+            <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <textPath href="#features-curve-1" startOffset="50%">
+                Cách mạng hóa
+              </textPath>
+            </text>
+            <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <textPath href="#features-curve-2" startOffset="50%">
+                <tspan fill="#ffc526">trải nghiệm</tspan> dọn dẹp
+              </textPath>
+            </text>
+          </svg>
           <p className="text-white/90">
             Ứng dụng công nghệ lõi mang đến cuộc sống rảnh tay, sạch sẽ và an toàn.
           </p>
@@ -27,10 +40,10 @@ export const Features: React.FC = () => {
                 <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
                   <RefreshCw className="w-6 h-6 text-brand-teal" />
                 </div>
-                <h3 className="text-2xl font-bold text-brand-navy font-display">Tự Động Sàng Lọc Phân</h3>
+                <h3 className="text-2xl font-bold text-brand-navy font-display">Lưới Lọc Cát Nam Châm Khử Mùi</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-8 max-w-xl">
-                Cảm biến trọng lượng phát hiện mèo rời đi, máy sẽ tự động quay lồng sàng lọc phân vón cục vào hộp rác kín mùi, giữ lại phần cát sạch hoàn toàn.
+                Cơ chế xoay sàng lọc phân thông minh của Pura Max 2 được nâng cấp với <strong>tấm lưới lọc nam châm hít từ tính</strong> đột phá, cho phép tháo rời nhanh chóng trong 1 giây để chùi rửa định kỳ mà không sợ gãy chốt.
               </p>
             </div>
             <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
@@ -50,10 +63,10 @@ export const Features: React.FC = () => {
                 <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
                   <ShieldAlert className="w-6 h-6 text-brand-teal" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-navy font-display">Khử Mùi Chủ Động</h3>
+                <h3 className="text-xl font-bold text-brand-navy font-display">Khử Mùi 3 Lớp Chuyên Sâu</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Xịt khử mùi thông minh tự động phun sương tinh dầu thơm khử sạch 99% mùi amoniac.
+                Sự kết hợp hoàn hảo giữa thiết kế nắp hộp phân khép kín, miếng sáp khử mùi N50 triệt tiêu Amoniac và bộ xịt phun sương tinh dầu diệt khuẩn tự động Pura Air.
               </p>
             </div>
             <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
@@ -76,7 +89,7 @@ export const Features: React.FC = () => {
                 <h3 className="text-xl font-bold text-brand-navy font-display">Theo Dõi Qua App</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Nhận dữ liệu cân nặng và lịch trình đi vệ sinh chi tiết của mèo cưng trên app để phát hiện bất thường sức khỏe.
+                Ghi nhận dữ liệu cân nặng chuẩn xác của từng bé mèo, lịch trình đi vệ sinh chi tiết qua kết nối Wi-Fi/Bluetooth để sớm phát hiện các dấu hiệu bệnh tiết niệu.
               </p>
             </div>
             <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
@@ -96,10 +109,10 @@ export const Features: React.FC = () => {
                 <div className="p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/10">
                   <RefreshCw className="w-6 h-6 text-brand-teal" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-navy font-display">Hộp Rác Lớn 7L</h3>
+                <h3 className="text-xl font-bold text-brand-navy font-display">Đế Khép Kín Chống Rò Rỉ Nước Tiểu</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Hộp gom phân lớn 7L kín khí, lưu trữ chất thải lên tới 15 ngày cho một bé mèo, giúp chuyến công tác dài ngày của bạn trở nên thảnh thơi.
+                Công nghệ chắn nước tiểu thông minh <strong>ShieldBase</strong> cùng lớp lót cao su chống trầy xước siêu bền bỉ giúp khoang máy luôn khô ráo. Hộp chứa chất thải 7L kín mùi đảm bảo lưu trữ tới 15 ngày cho 1 bé mèo.
               </p>
             </div>
             <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">

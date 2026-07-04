@@ -71,7 +71,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base md:text-lg text-white/80 mb-6 max-w-xl leading-relaxed font-sans text-center mx-auto"
           >
-            Giải phóng <span className="font-black text-brand-yellow">100% sức lao động</span> với <span className="font-black text-white">Petkit Pura Max</span>. Hệ thống tự động lọc phân thông minh, xịt khử mùi chủ động Pura Air và bảo vệ mèo cưng tuyệt đối với <span className="font-black text-white">12 cảm biến an toàn</span>.
+            Giải phóng <span className="font-black text-brand-yellow">100% sức lao động</span> với <span className="font-black text-white">Petkit Pura Max 2</span>. Hệ thống tự động lọc phân thông minh, xịt khử mùi chủ động Pura Air và bảo vệ mèo cưng tuyệt đối với <span className="font-black text-white">12 cảm biến an toàn</span>.
           </motion.p>
  
           {/* Actions with SVG path animation */}
@@ -148,7 +148,7 @@ export const Hero: React.FC = () => {
           >
             <img 
               src="/src/assets/Petkit/hero-cat.png" 
-              alt="Petkit Pura Max Smart Cat Litter Box" 
+              alt="Petkit Pura Max 2 Smart Cat Litter Box" 
               className="w-full h-auto max-h-full object-contain relative z-10 hover:scale-103 transition-transform duration-700 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
               fetchPriority="high"
             />
@@ -157,9 +157,9 @@ export const Hero: React.FC = () => {
 
       </div>
 
-      {/* Fluid Organic Wave Divider to Section 2 (Deep Indigo / Dark Slate) */}
+      {/* Fluid Organic Wave Divider to Section 2 (Features - brand-coral) */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 translate-y-[1px]">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[64px] fill-brand-dark">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[64px] fill-brand-coral">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
         </svg>
       </div>

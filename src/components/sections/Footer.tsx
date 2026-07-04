@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
         <div>
           <h4 className="text-white font-bold mb-4 text-sm uppercase tracking-wider font-display">Sản phẩm</h4>
           <ul className="flex flex-col gap-2.5 text-sm text-white/70">
-            <li><a href="#features" className="hover:text-brand-yellow transition">Petkit Pura Max</a></li>
+            <li><a href="#features" className="hover:text-brand-yellow transition">Petkit Pura Max 2</a></li>
             <li><a href="#specs" className="hover:text-brand-yellow transition">Phụ kiện chính hãng</a></li>
             <li><a href="#safety" className="hover:text-brand-yellow transition">Hệ thống xSecure</a></li>
           </ul>

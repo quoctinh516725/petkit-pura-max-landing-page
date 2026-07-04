@@ -6,23 +6,23 @@ export const Safety: React.FC = () => {
   const sensors = [
     {
       icon: <Eye className="w-5 h-5 text-brand-teal" />,
-      name: "Cảm biến Hồng ngoại",
-      desc: "Tự động dừng xoay lồng lập tức khi phát hiện mèo tiếp cận lối vào."
+      name: "Hồng Ngoại & Cảm Biến Nhiệt",
+      desc: "Phát hiện bức xạ nhiệt cơ thể mèo cưng khi tiến gần cửa máy để tạm dừng quay ngay lập tức."
     },
     {
       icon: <Scale className="w-5 h-5 text-brand-teal" />,
-      name: "Cảm biến Trọng lượng",
-      desc: "Đo chính xác cân nặng, nhận biết mèo đang ở trong để bảo vệ."
+      name: "Trọng Lượng Đa Mèo",
+      desc: "Nhận biết chính xác mèo từ 1.5kg bước vào lồng quay và đồng bộ cân nặng riêng cho từng bé."
     },
     {
       icon: <Shield className="w-5 h-5 text-brand-teal" />,
-      name: "Cảm biến Chống kẹt chân",
-      desc: "Phát hiện lực cản bất thường ở cửa lồng để dừng khẩn cấp."
+      name: "Cảm Biến Chống Kẹt Lồng",
+      desc: "Dừng quay khẩn cấp khi phát hiện bất kỳ lực cản cơ học nào ở rìa cửa lồng để bảo vệ chân bé."
     },
     {
       icon: <AlertTriangle className="w-5 h-5 text-brand-teal" />,
-      name: "Hệ thống Cảnh báo App",
-      desc: "Gửi thông báo khẩn cấp trực tiếp về điện thoại khi có sự cố."
+      name: "Báo Động Wifi Thời Gian Thực",
+      desc: "Gửi cảnh báo tức thì về App PETKIT trên điện thoại kèm nhật ký hoạt động chi tiết mỗi giây."
     }
   ];
 
@@ -40,10 +40,22 @@ export const Safety: React.FC = () => {
               <span>Bảo vệ xSecure 3 Lớp</span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-extrabold text-brand-navy tracking-tight mb-6 font-display leading-[1.1]">
-              Hệ thống 12 cảm biến <br />
-              <span className="underline decoration-brand-coral decoration-wavy decoration-3 underline-offset-8">An toàn tuyệt đối</span>
-            </h2>
+            <h2 className="sr-only">Hệ thống 12 cảm biến, An toàn tuyệt đối</h2>
+            <svg viewBox="0 0 600 180" className="w-full max-w-xl overflow-visible fill-brand-navy select-none mb-4 -ml-2">
+              <path id="safety-curve-1" d="M 20,75 Q 300,15 580,75" fill="none" />
+              <path id="safety-curve-2" d="M 20,145 Q 300,85 580,145" fill="none" />
+              
+              <text className="font-display font-black text-[46px]" textAnchor="middle">
+                <textPath href="#safety-curve-1" startOffset="50%">
+                  Hệ thống 12 cảm biến
+                </textPath>
+              </text>
+              <text className="font-display font-black text-[46px]" textAnchor="middle">
+                <textPath href="#safety-curve-2" startOffset="50%">
+                  <tspan fill="#32889c">An toàn tuyệt đối</tspan>
+                </textPath>
+              </text>
+            </svg>
             
             <p className="text-brand-navy/80 text-sm md:text-base mb-10 max-w-xl leading-relaxed">
               Giải quyết hoàn toàn nỗi sợ lớn nhất của người nuôi mèo về các dòng máy dọn vệ sinh tự động giá rẻ gây kẹt mèo. Hệ thống xSecure bảo vệ mèo cưng 24/7.
@@ -77,7 +89,7 @@ export const Safety: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
               <img 
                 src="/src/assets/Petkit/anh4.webp" 
-                alt="Hệ thống cảm biến an toàn Petkit Pura Max" 
+                alt="Hệ thống cảm biến an toàn Petkit Pura Max 2" 
                 className="w-full h-full object-cover relative z-0 hover:scale-103 transition-transform duration-700"
                 loading="lazy"
               />

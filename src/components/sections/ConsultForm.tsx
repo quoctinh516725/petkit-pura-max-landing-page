@@ -28,12 +28,18 @@ export const ConsultForm: React.FC = () => {
             <span>Ưu Đãi Độc Quyền Tháng Này</span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 font-display">
-            Đăng Ký Tư Vấn Ngay
-          </h2>
+          <h2 className="sr-only">Đăng Ký Tư Vấn Ngay</h2>
+          <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
+            <path id="consult-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
+            <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <textPath href="#consult-curve" startOffset="50%">
+                Đăng Ký Tư Vấn Ngay
+              </textPath>
+            </text>
+          </svg>
           
-          <p className="text-white/95 mb-12 max-w-md mx-auto text-sm leading-relaxed">
-            Nhận ngay Voucher giảm giá **500.000đ** kèm quà tặng thảm bẫy cát chính hãng khi mua Petkit Pura Max hôm nay.
+          <p className="text-white/90 mb-12 max-w-md mx-auto text-sm md:text-base leading-relaxed">
+            Nhận ngay Voucher giảm giá <span className="font-black text-brand-yellow">500.000đ</span>, quà tặng thảm bẫy cát chính hãng và đặc quyền bảo hành vàng <span className="font-black text-white">24 tháng</span> khi sở hữu Petkit Pura Max 2 hôm nay.
           </p>
 
           <Card hoverEffect={false} className="bg-white text-brand-navy border-none p-8 text-left relative max-w-lg mx-auto rounded-[2rem] shadow-2xl">
