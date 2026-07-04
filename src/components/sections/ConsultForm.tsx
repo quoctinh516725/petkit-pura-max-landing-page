@@ -4,6 +4,8 @@ import { Card } from '../ui/Card';
 import { Toast } from '../ui/Toast';
 import { Sparkles, Send, Check, Loader2 } from 'lucide-react';
 
+import { useAppSelector } from '../../store/hooks';
+
 const PHONE_REGEX = /^(0[35789])[0-9]{8}$/;
 
 interface FormErrors {
@@ -18,6 +20,8 @@ export const ConsultForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
+
+  const cartItems = useAppSelector((state) => state.cart.items);
 
   // Toast state
   const [toastVisible, setToastVisible] = useState(false);
@@ -55,17 +59,31 @@ export const ConsultForm: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Simulate API call / webhook post (1.5s delay)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log('Form submitted:', { name, phone, catsCount });
+      const response = await fetch('/api/consult', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone: phone.trim(),
+          catsCount,
+          cartItems,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Gửi yêu cầu thất bại');
+      }
 
       setSubmitted(true);
       showToast(
         'Đăng ký thành công! Đội ngũ CSKH sẽ liên hệ bạn trong 15 phút.',
         'success'
       );
-    } catch {
-      showToast('Có lỗi xảy ra. Vui lòng thử lại sau.', 'error');
+    } catch (err) {
+      console.error(err);
+      showToast('Có lỗi xảy ra khi lưu đăng ký tư vấn. Vui lòng thử lại sau.', 'error');
     } finally {
       setIsLoading(false);
     }

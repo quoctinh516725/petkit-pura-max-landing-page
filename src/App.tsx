@@ -1,49 +1,56 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
 import { useAppSelector } from './store/hooks';
 
-// ─── Lazy-load all below-the-fold sections ──────────────────────────────────
-// This splits each section into its own chunk, reducing initial bundle size
-// and improving LCP / FCP scores significantly.
-const Features     = lazy(() => import('./components/sections/Features').then(m => ({ default: m.Features })));
-const Safety       = lazy(() => import('./components/sections/Safety').then(m => ({ default: m.Safety })));
-const Specs        = lazy(() => import('./components/sections/Specs').then(m => ({ default: m.Specs })));
-const ProductShop  = lazy(() => import('./components/sections/ProductShop').then(m => ({ default: m.ProductShop })));
-const Social       = lazy(() => import('./components/sections/Social').then(m => ({ default: m.Social })));
-const ConsultForm  = lazy(() => import('./components/sections/ConsultForm').then(m => ({ default: m.ConsultForm })));
-const Footer       = lazy(() => import('./components/sections/Footer').then(m => ({ default: m.Footer })));
-const CartDrawer   = lazy(() => import('./components/ui/CartDrawer').then(m => ({ default: m.CartDrawer })));
+// ─── Lazy-load below-the-fold components and Admin ──────────────────────────
+const Features      = lazy(() => import('./components/sections/Features').then(m => ({ default: m.Features })));
+const Safety        = lazy(() => import('./components/sections/Safety').then(m => ({ default: m.Safety })));
+const Specs         = lazy(() => import('./components/sections/Specs').then(m => ({ default: m.Specs })));
+const ProductShop   = lazy(() => import('./components/sections/ProductShop').then(m => ({ default: m.ProductShop })));
+const Social        = lazy(() => import('./components/sections/Social').then(m => ({ default: m.Social })));
+const ConsultForm   = lazy(() => import('./components/sections/ConsultForm').then(m => ({ default: m.ConsultForm })));
+const Footer        = lazy(() => import('./components/sections/Footer').then(m => ({ default: m.Footer })));
+const CartDrawer    = lazy(() => import('./components/ui/CartDrawer').then(m => ({ default: m.CartDrawer })));
 const FavoritesDrawer = lazy(() => import('./components/ui/FavoritesDrawer').then(m => ({ default: m.FavoritesDrawer })));
-const ChatWidget   = lazy(() => import('./components/ui/ChatWidget').then(m => ({ default: m.ChatWidget })));
+const ChatWidget    = lazy(() => import('./components/ui/ChatWidget').then(m => ({ default: m.ChatWidget })));
+
+// Admin Page (Lazy Loaded)
+const AdminDashboard = lazy(() => import('./components/sections/AdminDashboard').then(m => ({ default: m.AdminDashboard })));
 
 // Section skeleton fallback — lightweight placeholder while chunk loads
 const SectionSkeleton: React.FC<{ height?: string }> = ({ height = 'h-64' }) => (
   <div className={`w-full ${height} bg-brand-dark animate-pulse`} aria-hidden="true" />
 );
 
-const App: React.FC = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
-
-  const cartItems = useAppSelector((state) => state.cart.items);
-  const favoriteItems = useAppSelector((state) => state.favorites.items);
-
-  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-  const favoritesCount = favoriteItems.length;
-
+// Main Landing Page Layout
+const LandingPage: React.FC<{
+  isCartOpen: boolean;
+  setIsCartOpen: (open: boolean) => void;
+  isFavoritesOpen: boolean;
+  setIsFavoritesOpen: (open: boolean) => void;
+  cartCount: number;
+  favoritesCount: number;
+}> = ({
+  isCartOpen,
+  setIsCartOpen,
+  isFavoritesOpen,
+  setIsFavoritesOpen,
+  cartCount,
+  favoritesCount,
+}) => {
   return (
-    <div className="min-h-screen bg-brand-dark overflow-x-hidden text-slate-100 selection:bg-brand-cyan selection:text-brand-dark">
+    <>
       <Helmet>
-        {/* Dynamic SEO — supplements the static tags in index.html */}
         <title>Petkit Pura Max 2 - Máy Dọn Vệ Sinh Mèo Thông Minh Tự Động | HeliPet.vn</title>
         <meta name="description" content="Khám phá Petkit Pura Max 2 thế hệ mới 2025. Hệ thống dọn vệ sinh tự động chống rò rỉ nước tiểu ShieldBase, lưới lọc nam châm thông minh, khử mùi 3 lớp và 12 cảm biến an toàn xSecure. Giá từ 10.450.000đ." />
         <meta property="og:image" content="/og-image.webp" />
         <meta property="og:url" content="https://helipet.vn/" />
       </Helmet>
 
-      {/* ── Critical path: Header + Hero render immediately (no lazy) ── */}
+      {/* Critical Path Header & Hero */}
       <Header
         onCartClick={() => setIsCartOpen(true)}
         onFavoritesClick={() => setIsFavoritesOpen(true)}
@@ -52,7 +59,7 @@ const App: React.FC = () => {
       />
       <Hero />
 
-      {/* ── Below-the-fold: lazy loaded with skeleton fallback ── */}
+      {/* Below-fold sections */}
       <Suspense fallback={<SectionSkeleton height="h-[600px]" />}>
         <Features />
       </Suspense>
@@ -81,7 +88,7 @@ const App: React.FC = () => {
         <Footer />
       </Suspense>
 
-      {/* ── Drawers & Chatbot — ultra-lazy (only rendered when opened) ── */}
+      {/* Drawers & Chatbot */}
       <Suspense fallback={null}>
         {isCartOpen && <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />}
       </Suspense>
@@ -92,6 +99,48 @@ const App: React.FC = () => {
       <Suspense fallback={null}>
         <ChatWidget />
       </Suspense>
+    </>
+  );
+};
+
+const App: React.FC = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
+
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const favoriteItems = useAppSelector((state) => state.favorites.items);
+
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const favoritesCount = favoriteItems.length;
+
+  return (
+    <div className="min-h-screen bg-brand-dark overflow-x-hidden text-slate-100 selection:bg-brand-cyan selection:text-brand-dark">
+      <Routes>
+        {/* Main Route */}
+        <Route
+          path="/"
+          element={
+            <LandingPage
+              isCartOpen={isCartOpen}
+              setIsCartOpen={setIsCartOpen}
+              isFavoritesOpen={isFavoritesOpen}
+              setIsFavoritesOpen={setIsFavoritesOpen}
+              cartCount={cartCount}
+              favoritesCount={favoritesCount}
+            />
+          }
+        />
+
+        {/* Admin Route */}
+        <Route
+          path="/admin"
+          element={
+            <Suspense fallback={<div className="min-h-screen bg-[#0f1322] flex items-center justify-center text-slate-400 font-mono">Đang tải trang quản trị...</div>}>
+              <AdminDashboard />
+            </Suspense>
+          }
+        />
+      </Routes>
     </div>
   );
 };
