@@ -38,6 +38,9 @@ src/
     *   Sắp xếp các class Tailwind theo thứ tự tiêu chuẩn (Layout -> Box sizing -> Spacing -> Typography -> Background -> Effect -> Transition).
     *   Sử dụng biến màu sắc nhất quán để dễ chuyển đổi giao diện (Dark Mode).
     *   Tránh lạm dụng inline style trừ khi cần tính toán động (ví dụ: Parallax offset).
+*   **Icon & Biểu tượng**:
+    *   Tuyệt đối **không** sử dụng các biểu tượng emoji (ví dụ: ✨, 🛡️, 😸, 🚀) làm icon đại diện trên giao diện người dùng.
+    *   Sử dụng các icon chuyên nghiệp (như Lucide Icons hoặc gói icon khác từ better-icons/chuẩn dự án) để đảm bảo giao diện cao cấp, chuyên nghiệp và nhất quán.
 
 ---
 

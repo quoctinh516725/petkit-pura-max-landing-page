@@ -2,30 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    @apply bg-brand-dark text-slate-100;
-  }
+/* Self-host Recoleta Fonts */
+@font-face {
+  font-family: 'Recoleta';
+  src: url('./assets/fonts/Recoleta-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Custom Scrollbar for Sleek Dark Look */
+@font-face {
+  font-family: 'Recoleta';
+  src: url('./assets/fonts/Recoleta-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base CSS Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #00a396; /* Khởi tạo mặc định bằng màu nền Hero (Teal) */
+  color: #1b223c;
+  font-family: 'Recoleta', 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Recoleta', 'Playfair Display', serif;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #080c14;
+  background: #00a396;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #1b223c;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #ffc526;
 }

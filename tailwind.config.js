@@ -9,17 +9,17 @@ export default {
     extend: {
       colors: {
         brand: {
-          cyan: "#00f0ff", // Neon Cyan cho cảm giác công nghệ
-          dark: "#080c14", // Deep Space Dark làm nền chủ đạo
-          card: "#111827", // Màu nền cho cards
-          accent: "#8b5cf6", // Tím làm điểm nhấn
+          teal: "#00a396",     // Section 1: Teal/Green của Lovebug
+          dark: "#2d2f4c",     // Section 2: Dark Slate/Indigo của Lovebug
+          coral: "#e86b62",    // Section 3: Coral/Salmon của Lovebug
+          yellow: "#ffc526",   // Section 4: Vibrant Yellow/Gold của Lovebug
+          navy: "#1b223c",     // Section 5: Deep Navy/Dark Slate của Lovebug
+          card: "rgba(255, 255, 255, 0.95)", // White card for testimonials
         }
       },
       fontFamily: {
-        sans: ['Inter', 'Outfit', 'sans-serif'],
-      },
-      animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        sans: ['Recoleta', 'Inter', 'sans-serif'], // Thay phông sans thành Recoleta làm mặc định
+        display: ['Recoleta', 'Playfair Display', 'serif'], // Đặt Recoleta lên hàng đầu cho display
       }
     },
   },
