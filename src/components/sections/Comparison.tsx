@@ -1,52 +1,46 @@
 import React from 'react';
+import { Check, X, Sparkles } from 'lucide-react';
 import { Card } from '../ui/Card';
-import { Check, X, AlertTriangle, Sparkles } from 'lucide-react';
+import { LazyImage } from '../ui/LazyImage';
 
 export const Comparison: React.FC = () => {
   return (
-    <section id="comparison" className="relative py-28 bg-brand-dark overflow-hidden">
+    <section className="relative py-28 bg-brand-navy overflow-hidden">
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <h2 className="sr-only">Giải phóng đôi tay, Khỏi ám ảnh dọn dẹp</h2>
-          <svg viewBox="0 0 600 180" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
-            <path id="comp-curve-1" d="M 20,75 Q 300,15 580,75" fill="none" />
-            <path id="comp-curve-2" d="M 20,145 Q 300,85 580,145" fill="none" />
-            
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
-              <textPath href="#comp-curve-1" startOffset="50%">
-                Giải phóng đôi tay
-              </textPath>
-            </text>
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
-              <textPath href="#comp-curve-2" startOffset="50%">
-                Khỏi <tspan fill="#ffc526">ám ảnh dọn dẹp</tspan>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="sr-only">Tại Sao Nên Chọn Petkit Pura Max 2?</h2>
+          <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
+            <path id="comparison-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
+              <textPath href="#comparison-curve" startOffset="50%">
+                Tại Sao Nên Chọn Pura Max 2?
               </textPath>
             </text>
           </svg>
-          <p className="text-slate-300 text-sm md:text-base">
-            Nhìn lại sự khác biệt một trời một vực giữa chậu cát thông thường và hệ thống tự động hóa.
+          <p className="text-white/80">
+            Sự khác biệt vượt trội giúp giải quyết hoàn toàn mọi bất tiện của phương pháp dọn vệ sinh truyền thống.
           </p>
         </div>
 
-        {/* Comparison Bento Grid (Asymmetric) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-5xl mx-auto items-stretch">
+        {/* Comparison grid (Asymmetric 5-7 layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-6xl mx-auto items-stretch">
           
-          {/* Traditional Sandbox (4 columns layout) */}
+          {/* Traditional Litter Box (5 columns layout) */}
           <div className="lg:col-span-5 flex">
-            <Card hoverEffect={false} className="bg-[#1b223c]/40 border border-red-550/10 relative overflow-hidden flex flex-col justify-between w-full p-8 rounded-[2rem]">
+            <Card hoverEffect={false} className="bg-slate-900/40 text-slate-300 border border-slate-800/80 flex flex-col justify-between w-full p-8 rounded-[2rem]">
               <div>
-                <h3 className="text-lg font-bold text-brand-coral flex items-center gap-2 mb-6 font-display">
-                  <AlertTriangle className="w-5 h-5" />
+                <h3 className="text-xl font-bold text-slate-400 flex items-center gap-2 mb-6 font-display">
+                  <X className="w-5 h-5 text-brand-coral" />
                   Khay Cát Truyền Thống
                 </h3>
                 
-                <ul className="space-y-4 text-xs md:text-sm text-slate-300">
+                <ul className="space-y-4 text-xs md:text-sm">
                   <li className="flex items-start gap-2.5">
                     <X className="w-4 h-4 text-brand-coral shrink-0 mt-0.5" />
-                    <span>Ám ảnh mùi hôi amoniac quanh phòng kín.</span>
+                    <span>Mùi hôi khai amoniac ám ảnh phòng kín 24/7.</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <X className="w-4 h-4 text-brand-coral shrink-0 mt-0.5" />
@@ -64,11 +58,11 @@ export const Comparison: React.FC = () => {
               </div>
 
               <div className="mt-6 w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-700/50 bg-slate-900/30">
-                <img 
-                  src="/src/assets/Petkit/khaycat.png" 
+                <LazyImage 
+                  src="/src/assets/Petkit/khaycat.webp" 
                   alt="Khay cát truyền thống bừa bộn" 
                   className="w-full h-full object-cover opacity-60 hover:opacity-90 transition-opacity duration-300"
-                  loading="lazy"
+                  wrapperClassName="w-full h-full"
                 />
               </div>
 
@@ -118,11 +112,11 @@ export const Comparison: React.FC = () => {
                 </div>
 
                 <div className="w-full md:w-[220px] shrink-0 aspect-square rounded-2xl bg-brand-teal/5 border border-brand-teal/10 flex items-center justify-center p-4 relative overflow-hidden">
-                  <img 
-                    src="/src/assets/Petkit/hero-cat.png" 
+                  <LazyImage 
+                    src="/src/assets/Petkit/hero-cat.webp" 
                     alt="Petkit Pura Max 2" 
                     className="w-full h-auto max-h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,163,150,0.15)] hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
+                    wrapperClassName="w-full h-full flex items-center justify-center"
                   />
                 </div>
               </div>

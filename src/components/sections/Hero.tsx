@@ -147,7 +147,7 @@ export const Hero: React.FC = () => {
             className="relative w-full max-w-[580px] flex items-center justify-center"
           >
             <img 
-              src="/src/assets/Petkit/hero-cat.png" 
+              src="/src/assets/Petkit/hero-cat.webp" 
               alt="Petkit Pura Max 2 - Máy Dọn Vệ Sinh Mèo Thông Minh Tự Động" 
               width="580"
               height="580"

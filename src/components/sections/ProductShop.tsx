@@ -53,7 +53,7 @@ export const ProductShop: React.FC = () => {
       id: 'pura-max-2-premium',
       name: 'Pura Max 2 Premium',
       price: 10950000,
-      image: '/src/assets/Petkit/hero-cat.png',
+      image: '/src/assets/Petkit/hero-cat.webp',
       variant: 'Premium Pack',
       badge: 'Bán chạy nhất',
       desc: 'Giải pháp chống bám bẩn cát toàn diện cho mèo.',
