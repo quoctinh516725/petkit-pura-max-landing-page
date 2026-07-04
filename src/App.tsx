@@ -5,22 +5,23 @@ import { Hero } from './components/sections/Hero';
 import { Features } from './components/sections/Features';
 import { Safety } from './components/sections/Safety';
 import { Specs } from './components/sections/Specs';
+import { ProductShop } from './components/sections/ProductShop';
 import { Social } from './components/sections/Social';
 import { ConsultForm } from './components/sections/ConsultForm';
 import { Footer } from './components/sections/Footer';
+import { CartDrawer } from './components/ui/CartDrawer';
+import { FavoritesDrawer } from './components/ui/FavoritesDrawer';
+import { useAppSelector } from './store/hooks';
 
 const App: React.FC = () => {
-  // Simple state stubs for cart and favorites panel interaction
-  const [cartCount] = useState(0);
-  const [favoritesCount] = useState(0);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
 
-  const handleCartClick = () => {
-    alert("Giỏ hàng sẽ được tích hợp bằng Redux Toolkit ở Phase 4!");
-  };
+  const cartItems = useAppSelector((state) => state.cart.items);
+  const favoriteItems = useAppSelector((state) => state.favorites.items);
 
-  const handleFavoritesClick = () => {
-    alert("Danh sách yêu thích sẽ được tích hợp bằng Redux Toolkit ở Phase 4!");
-  };
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const favoritesCount = favoriteItems.length;
 
   return (
     <div className="min-h-screen bg-brand-dark overflow-x-hidden text-slate-100 selection:bg-brand-cyan selection:text-brand-dark">
@@ -37,8 +38,8 @@ const App: React.FC = () => {
 
       {/* Navigation Header */}
       <Header 
-        onCartClick={handleCartClick}
-        onFavoritesClick={handleFavoritesClick}
+        onCartClick={() => setIsCartOpen(true)}
+        onFavoritesClick={() => setIsFavoritesOpen(true)}
         cartCount={cartCount}
         favoritesCount={favoritesCount}
       />
@@ -48,8 +49,13 @@ const App: React.FC = () => {
       <Features />
       <Safety />
       <Specs />
+      <ProductShop />
       <Social />
       <ConsultForm />
+
+      {/* Drawers (Cart & Favorites Slide-out Panels) */}
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <FavoritesDrawer isOpen={isFavoritesOpen} onClose={() => setIsFavoritesOpen(false)} />
 
       {/* Footer */}
       <Footer />

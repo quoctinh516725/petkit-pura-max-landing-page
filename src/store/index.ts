@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
+import cartReducer from './slices/cartSlice';
+import favoritesReducer from './slices/favoritesSlice';
+import viewedReducer from './slices/viewedSlice';
 
 export const store = configureStore({
   reducer: {
-    // Slices will be added in Phase 4
-    placeholder: (state = {}) => state,
+    cart: cartReducer,
+    favorites: favoritesReducer,
+    viewed: viewedReducer,
   },
 });
 

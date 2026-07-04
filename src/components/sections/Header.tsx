@@ -19,9 +19,9 @@ export const Header: React.FC<HeaderProps> = ({
 
   const menuItems = [
     { label: 'Trang chủ', href: '#home' },
-    { label: 'So sánh', href: '#comparison' },
     { label: 'Tính năng', href: '#features' },
     { label: 'An toàn', href: '#safety' },
+    { label: 'Thông số', href: '#specs' },
   ];
 
   return (
