@@ -109,7 +109,7 @@ export const Safety: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
               <LazyImage 
-                src="/src/assets/Petkit/anh4.webp" 
+                src="/Petkit/anh4.webp" 
                 alt="Hệ thống cảm biến an toàn Petkit Pura Max 2" 
                 className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
                 wrapperClassName="w-full h-full absolute inset-0"

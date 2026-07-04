@@ -20,10 +20,10 @@ const sVariants = {
 
 export const Social: React.FC = () => {
   const instagramPosts = [
-    { image: "/src/assets/Petkit/anh9.webp", author: "@mimi_the_cat", likes: 231, caption: "Hoàng hoàng thượng mê tít cái nhà vệ sinh mới này rồi, sạch bong kin kít! #petkitpuramax #catsofinstagram" },
-    { image: "/src/assets/Petkit/anh10.webp", author: "@bun_petstore", likes: 512, caption: "Đi làm cả ngày về phòng không còn tí mùi khai nào luôn, đáng đồng tiền bát gạo thực sự! #happypet #smarthome" },
-    { image: "/src/assets/Petkit/anh11.webp", author: "@kiki_house", likes: 189, caption: "Cảm biến nhạy kinh khủng, cứ mèo tiến lại gần là tự động đứng im ngay lập tức, cực kỳ an tâm! #petkit" },
-    { image: "/src/assets/Petkit/anh12.webp", author: "@pate_petshop", likes: 420, caption: "Nuôi 3 bé mèo dọn tay xỉu lên xỉu xuống, giờ có em này rảnh rang cả tuần chỉ việc xách túi rác đi vứt!" }
+    { image: "/Petkit/anh9.webp", author: "@mimi_the_cat", likes: 231, caption: "Hoàng hoàng thượng mê tít cái nhà vệ sinh mới này rồi, sạch bong kin kít! #petkitpuramax #catsofinstagram" },
+    { image: "/Petkit/anh10.webp", author: "@bun_petstore", likes: 512, caption: "Đi làm cả ngày về phòng không còn tí mùi khai nào luôn, đáng đồng tiền bát gạo thực sự! #happypet #smarthome" },
+    { image: "/Petkit/anh11.webp", author: "@kiki_house", likes: 189, caption: "Cảm biến nhạy kinh khủng, cứ mèo tiến lại gần là tự động đứng im ngay lập tức, cực kỳ an tâm! #petkit" },
+    { image: "/Petkit/anh12.webp", author: "@pate_petshop", likes: 420, caption: "Nuôi 3 bé mèo dọn tay xỉu lên xỉu xuống, giờ có em này rảnh rang cả tuần chỉ việc xách túi rác đi vứt!" }
   ];
 
   return (

@@ -71,7 +71,7 @@ export const Features: React.FC = () => {
               </div>
               <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
                 <LazyImage 
-                  src="/src/assets/Petkit/anh1.webp" 
+                  src="/Petkit/anh1.webp" 
                   alt="Tự động sàng lọc phân mèo" 
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
                   wrapperClassName="w-full h-full flex items-center justify-center"
@@ -103,7 +103,7 @@ export const Features: React.FC = () => {
               </div>
               <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
                 <LazyImage 
-                  src="/src/assets/Petkit/anh2.webp" 
+                  src="/Petkit/anh2.webp" 
                   alt="Bình xịt khử mùi Pura Air" 
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   wrapperClassName="w-full h-full flex items-center justify-center"
@@ -135,7 +135,7 @@ export const Features: React.FC = () => {
               </div>
               <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
                 <LazyImage 
-                  src="/src/assets/Petkit/anh3.webp" 
+                  src="/Petkit/anh3.webp" 
                   alt="Theo dõi sức khỏe mèo qua app" 
                   className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   wrapperClassName="w-full h-full flex items-center justify-center"
@@ -167,7 +167,7 @@ export const Features: React.FC = () => {
               </div>
               <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden border-4 border-slate-100 bg-white">
                 <LazyImage 
-                  src="/src/assets/Petkit/anh6.webp" 
+                  src="/Petkit/anh6.webp" 
                   alt="Dung tích hộp chứa chất thải lớn" 
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-700"
                   wrapperClassName="w-full h-full flex items-center justify-center"

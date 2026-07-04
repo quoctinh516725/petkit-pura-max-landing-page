@@ -59,7 +59,7 @@ export const Comparison: React.FC = () => {
 
               <div className="mt-6 w-full aspect-[16/10] rounded-xl overflow-hidden border border-slate-700/50 bg-slate-900/30">
                 <LazyImage 
-                  src="/src/assets/Petkit/khaycat.webp" 
+                  src="/Petkit/khaycat.webp" 
                   alt="Khay cát truyền thống bừa bộn" 
                   className="w-full h-full object-cover opacity-60 hover:opacity-90 transition-opacity duration-300"
                   wrapperClassName="w-full h-full"
@@ -113,7 +113,7 @@ export const Comparison: React.FC = () => {
 
                 <div className="w-full md:w-[220px] shrink-0 aspect-square rounded-2xl bg-brand-teal/5 border border-brand-teal/10 flex items-center justify-center p-4 relative overflow-hidden">
                   <LazyImage 
-                    src="/src/assets/Petkit/hero-cat.webp" 
+                    src="/Petkit/hero-cat.webp" 
                     alt="Petkit Pura Max 2" 
                     className="w-full h-auto max-h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,163,150,0.15)] hover:scale-105 transition-transform duration-500"
                     wrapperClassName="w-full h-full flex items-center justify-center"

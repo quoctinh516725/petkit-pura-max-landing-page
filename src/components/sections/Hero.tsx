@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="absolute left-0 bottom-0 w-24 sm:w-36 md:w-48 lg:w-56 z-20 pointer-events-none select-none"
       >
-        <img src="/src/assets/Petkit/cat-banner-1.png" alt="" aria-hidden="true" width="224" height="400" className="w-full h-auto" loading="eager" decoding="async" />
+        <img src="/Petkit/cat-banner-1.png" alt="" aria-hidden="true" width="224" height="400" className="w-full h-auto" loading="eager" decoding="async" />
       </motion.div>
 
       <motion.div
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="absolute right-0 top-20 w-24 sm:w-36 md:w-48 lg:w-56 z-20 pointer-events-none select-none"
       >
-        <img src="/src/assets/Petkit/cat-banner-2.png" alt="" aria-hidden="true" width="224" height="400" className="w-full h-auto" loading="eager" decoding="async" />
+        <img src="/Petkit/cat-banner-2.png" alt="" aria-hidden="true" width="224" height="400" className="w-full h-auto" loading="eager" decoding="async" />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
         <div className="lg:col-span-5 relative flex justify-center lg:justify-end z-10">
           <div className="relative w-full max-w-[580px] flex items-center justify-center">
             <img 
-              src="/src/assets/Petkit/hero-cat.webp" 
+              src="/Petkit/hero-cat.webp" 
               alt="Petkit Pura Max 2 - Máy Dọn Vệ Sinh Mèo Thông Minh Tự Động" 
               width="580"
               height="580"

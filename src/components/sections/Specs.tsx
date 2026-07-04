@@ -63,7 +63,7 @@ export const Specs: React.FC = () => {
           >
             <Card hoverEffect={true} className="w-full max-w-[340px] aspect-square rounded-[3rem] p-0 border-8 border-white bg-white overflow-hidden shadow-2xl">
               <LazyImage 
-                src="/src/assets/Petkit/anh5.webp" 
+                src="/Petkit/anh5.webp" 
                 alt="Petkit Pura Max 2 - Thông số kỹ thuật chi tiết" 
                 className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
                 wrapperClassName="w-full h-full"
