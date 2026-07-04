@@ -1,5 +1,16 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
+import { LazyImage } from '../ui/LazyImage';
+
+const rowVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: i * 0.07, duration: 0.4, ease: 'easeOut' },
+  }),
+};
 
 export const Specs: React.FC = () => {
   const specItems = [
@@ -18,7 +29,13 @@ export const Specs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center max-w-2xl mx-auto mb-14"
+        >
           <h2 className="sr-only">Thông Số Kỹ Thuật</h2>
           <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
             <path id="specs-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
@@ -31,22 +48,28 @@ export const Specs: React.FC = () => {
           <p className="text-white/80">
             Thông tin chi tiết về kích thước và khả năng hoạt động của Petkit Pura Max 2.
           </p>
-        </div>
+        </motion.div>
 
         {/* Specs Bento (Asymmetric Grid) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
           
           {/* Left: Product Image (5 columns) */}
-          <div className="lg:col-span-5 flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+            className="lg:col-span-5 flex justify-center"
+          >
             <Card hoverEffect={true} className="w-full max-w-[340px] aspect-square rounded-[3rem] p-0 border-8 border-white bg-white overflow-hidden shadow-2xl">
-              <img 
+              <LazyImage 
                 src="/src/assets/Petkit/anh5.webp" 
-                alt="Petkit Pura Max 2 Technical Specs" 
+                alt="Petkit Pura Max 2 - Thông số kỹ thuật chi tiết" 
                 className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
-                loading="lazy"
+                wrapperClassName="w-full h-full"
               />
             </Card>
-          </div>
+          </motion.div>
 
           {/* Right: Specs Table (7 columns) */}
           <div className="lg:col-span-7">
@@ -54,13 +77,18 @@ export const Specs: React.FC = () => {
               <table className="w-full text-xs sm:text-sm text-left text-brand-navy">
                 <tbody>
                   {specItems.map((item, idx) => (
-                    <tr 
-                      key={idx} 
+                    <motion.tr
+                      key={idx}
+                      custom={idx}
+                      variants={rowVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: '-20px' }}
                       className={`border-b border-slate-100 ${idx === specItems.length - 1 ? 'border-b-0' : ''}`}
                     >
                       <td className="py-4 pr-4 font-bold text-brand-navy w-1/2 font-display">{item.label}</td>
                       <td className="py-4 text-slate-600 w-1/2">{item.value}</td>
-                    </tr>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>

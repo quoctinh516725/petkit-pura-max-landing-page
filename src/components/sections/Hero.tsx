@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="absolute left-0 bottom-0 w-24 sm:w-36 md:w-48 lg:w-56 z-20 pointer-events-none select-none"
       >
-        <img src="/src/assets/Petkit/cat-banner-1.png" alt="Cat Banner Left" className="w-full h-auto" />
+        <img src="/src/assets/Petkit/cat-banner-1.png" alt="" aria-hidden="true" width="224" height="400" className="w-full h-auto" loading="eager" decoding="async" />
       </motion.div>
 
       <motion.div
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
         className="absolute right-0 top-20 w-24 sm:w-36 md:w-48 lg:w-56 z-20 pointer-events-none select-none"
       >
-        <img src="/src/assets/Petkit/cat-banner-2.png" alt="Cat Banner Right" className="w-full h-auto" />
+        <img src="/src/assets/Petkit/cat-banner-2.png" alt="" aria-hidden="true" width="224" height="400" className="w-full h-auto" loading="eager" decoding="async" />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
@@ -148,9 +148,13 @@ export const Hero: React.FC = () => {
           >
             <img 
               src="/src/assets/Petkit/hero-cat.png" 
-              alt="Petkit Pura Max 2 Smart Cat Litter Box" 
+              alt="Petkit Pura Max 2 - Máy Dọn Vệ Sinh Mèo Thông Minh Tự Động" 
+              width="580"
+              height="580"
               className="w-full h-auto max-h-full object-contain relative z-10 hover:scale-103 transition-transform duration-700 filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
               fetchPriority="high"
+              loading="eager"
+              decoding="sync"
             />
           </motion.div>
         </div>

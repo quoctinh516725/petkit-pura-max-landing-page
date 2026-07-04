@@ -1,6 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Eye, Scale, AlertTriangle } from 'lucide-react';
+import { LazyImage } from '../ui/LazyImage';
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.5, ease: 'easeOut' },
+  }),
+};
 
 export const Safety: React.FC = () => {
   const sensors = [
@@ -63,8 +73,13 @@ export const Safety: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {sensors.map((sensor, idx) => (
-                <div 
-                  key={idx} 
+                <motion.div
+                  key={idx}
+                  custom={idx}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: '-40px' }}
                   className="flex gap-4 p-5 rounded-2xl bg-white text-brand-navy border-none shadow-md"
                 >
                   <div className="shrink-0 p-2.5 rounded-xl bg-brand-teal/5 border border-brand-teal/15 h-11 w-11 flex items-center justify-center">
@@ -74,31 +89,37 @@ export const Safety: React.FC = () => {
                     <h4 className="text-brand-navy font-bold text-sm mb-1.5 font-display">{sensor.name}</h4>
                     <p className="text-xs text-slate-650 leading-relaxed">{sensor.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Right: Technical Image (5 Columns) */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.215, 0.61, 0.355, 1] }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
             <motion.div 
               whileHover={{ y: -4 }}
               transition={{ duration: 0.4 }}
               className="relative w-full max-w-[380px] aspect-[4/5] rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl bg-white"
             >
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-              <img 
+              <LazyImage 
                 src="/src/assets/Petkit/anh4.webp" 
                 alt="Hệ thống cảm biến an toàn Petkit Pura Max 2" 
-                className="w-full h-full object-cover relative z-0 hover:scale-103 transition-transform duration-700"
-                loading="lazy"
+                className="w-full h-full object-cover hover:scale-103 transition-transform duration-700"
+                wrapperClassName="w-full h-full absolute inset-0"
               />
               <div className="absolute bottom-8 left-8 right-8 z-20">
                 <span className="text-xs font-mono text-brand-yellow uppercase tracking-widest block mb-1">Công nghệ xSecure</span>
                 <span className="text-lg font-bold text-white font-display">Tự động dừng khi mèo lại gần cửa lồng 30cm</span>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
         </div>
 
