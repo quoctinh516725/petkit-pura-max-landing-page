@@ -59,7 +59,8 @@ export const ConsultForm: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/consult', {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/consult`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

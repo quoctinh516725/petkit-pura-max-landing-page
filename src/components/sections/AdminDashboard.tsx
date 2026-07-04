@@ -47,7 +47,8 @@ export const AdminDashboard: React.FC = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('/api/consultations');
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const response = await fetch(`${apiUrl}/api/consultations`);
       if (!response.ok) {
         throw new Error('Lỗi fetch dữ liệu: ' + response.statusText);
       }
@@ -65,7 +66,8 @@ export const AdminDashboard: React.FC = () => {
     fetchConsultations();
 
     // Connect to Socket.io
-    const socket = io();
+    const apiUrl = import.meta.env.VITE_API_URL || '';
+    const socket = io(apiUrl || undefined);
 
     socket.on('connect', () => {
       console.log('Admin connected to WebSocket server');
