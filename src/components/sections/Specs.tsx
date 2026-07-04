@@ -22,7 +22,7 @@ export const Specs: React.FC = () => {
           <h2 className="sr-only">Thông Số Kỹ Thuật</h2>
           <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
             <path id="specs-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
               <textPath href="#specs-curve" startOffset="50%">
                 Thông Số Kỹ Thuật
               </textPath>

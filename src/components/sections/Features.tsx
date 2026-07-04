@@ -14,12 +14,12 @@ export const Features: React.FC = () => {
             <path id="features-curve-1" d="M 20,75 Q 300,15 580,75" fill="none" />
             <path id="features-curve-2" d="M 20,145 Q 300,85 580,145" fill="none" />
             
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
               <textPath href="#features-curve-1" startOffset="50%">
                 Cách mạng hóa
               </textPath>
             </text>
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
               <textPath href="#features-curve-2" startOffset="50%">
                 <tspan fill="#ffc526">trải nghiệm</tspan> dọn dẹp
               </textPath>

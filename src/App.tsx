@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
@@ -12,6 +12,11 @@ import { Footer } from './components/sections/Footer';
 import { CartDrawer } from './components/ui/CartDrawer';
 import { FavoritesDrawer } from './components/ui/FavoritesDrawer';
 import { useAppSelector } from './store/hooks';
+
+// Lazy load ChatWidget for better LCP performance
+const ChatWidget = lazy(() =>
+  import('./components/ui/ChatWidget').then((mod) => ({ default: mod.ChatWidget }))
+);
 
 const App: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -56,6 +61,11 @@ const App: React.FC = () => {
       {/* Drawers (Cart & Favorites Slide-out Panels) */}
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <FavoritesDrawer isOpen={isFavoritesOpen} onClose={() => setIsFavoritesOpen(false)} />
+
+      {/* AI Chatbot Widget (Lazy Loaded) */}
+      <Suspense fallback={null}>
+        <ChatWidget />
+      </Suspense>
 
       {/* Footer */}
       <Footer />

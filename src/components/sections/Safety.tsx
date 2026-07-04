@@ -45,12 +45,12 @@ export const Safety: React.FC = () => {
               <path id="safety-curve-1" d="M 20,75 Q 300,15 580,75" fill="none" />
               <path id="safety-curve-2" d="M 20,145 Q 300,85 580,145" fill="none" />
               
-              <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <text className="font-display font-black text-[56px]" textAnchor="middle">
                 <textPath href="#safety-curve-1" startOffset="50%">
                   Hệ thống 12 cảm biến
                 </textPath>
               </text>
-              <text className="font-display font-black text-[46px]" textAnchor="middle">
+              <text className="font-display font-black text-[56px]" textAnchor="middle">
                 <textPath href="#safety-curve-2" startOffset="50%">
                   <tspan fill="#32889c">An toàn tuyệt đối</tspan>
                 </textPath>

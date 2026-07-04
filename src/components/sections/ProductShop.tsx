@@ -106,12 +106,12 @@ export const ProductShop: React.FC = () => {
             <path id="shop-curve-1" d="M 20,75 Q 300,15 580,75" fill="none" />
             <path id="shop-curve-2" d="M 20,145 Q 300,85 580,145" fill="none" />
             
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
               <textPath href="#shop-curve-1" startOffset="50%">
                 Các Gói Sản Phẩm
               </textPath>
             </text>
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
               <textPath href="#shop-curve-2" startOffset="50%">
                 <tspan fill="#ffc526">Ưu đãi độc quyền</tspan>
               </textPath>

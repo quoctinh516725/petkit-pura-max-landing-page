@@ -50,13 +50,13 @@ export const Hero: React.FC = () => {
               <path id="curve-line-1" d="M 20,90 Q 300,30 580,90" fill="none" />
               <path id="curve-line-2" d="M 20,165 Q 300,105 580,165" fill="none" />
               
-              <text className="font-display font-black text-[54px]" textAnchor="middle">
+              <text className="font-display font-black text-[66px]" textAnchor="middle">
                 <textPath href="#curve-line-1" startOffset="50%">
                   Nhà sạch mèo thơm
                 </textPath>
               </text>
               
-              <text className="font-display font-black text-[54px]" textAnchor="middle">
+              <text className="font-display font-black text-[66px]" textAnchor="middle">
                 <textPath href="#curve-line-2" startOffset="50%">
                   Bát sạch <tspan fill="#ffc526">Ngon Cơm</tspan>
                 </textPath>
@@ -144,7 +144,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[450px] aspect-square flex items-center justify-center"
+            className="relative w-full max-w-[580px] flex items-center justify-center"
           >
             <img 
               src="/src/assets/Petkit/hero-cat.png" 

@@ -19,7 +19,7 @@ export const Social: React.FC = () => {
           <h2 className="sr-only">Trải nghiệm thực tế</h2>
           <svg viewBox="0 0 600 100" className="w-full max-w-xl mx-auto overflow-visible fill-white select-none mb-4">
             <path id="social-curve" d="M 20,75 Q 300,20 580,75" fill="none" />
-            <text className="font-display font-black text-[46px]" textAnchor="middle">
+            <text className="font-display font-black text-[56px]" textAnchor="middle">
               <textPath href="#social-curve" startOffset="50%">
                 Trải nghiệm thực tế
               </textPath>
