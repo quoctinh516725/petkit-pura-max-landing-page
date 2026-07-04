@@ -5,6 +5,13 @@ class ConsultController {
     try {
       const { name, phone, catsCount, cartItems } = req.body;
       const newConsult = await consultService.registerConsult({ name, phone, catsCount, cartItems });
+      
+      // Emit socket event for real-time updates
+      const io = req.app.get('io');
+      if (io) {
+        io.emit('newConsultation', newConsult);
+      }
+
       return res.status(201).json({ message: 'Đăng ký tư vấn thành công!', data: newConsult });
     } catch (err) {
       console.error('Error in consult controller:', err);

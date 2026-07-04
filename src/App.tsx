@@ -135,7 +135,7 @@ const App: React.FC = () => {
         <Route
           path="/admin"
           element={
-            <Suspense fallback={<div className="min-h-screen bg-[#0f1322] flex items-center justify-center text-slate-400 font-mono">Đang tải trang quản trị...</div>}>
+            <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center text-slate-500 font-mono">Đang tải trang quản trị...</div>}>
               <AdminDashboard />
             </Suspense>
           }
