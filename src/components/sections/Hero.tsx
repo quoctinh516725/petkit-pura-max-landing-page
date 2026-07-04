@@ -39,12 +39,7 @@ export const Hero: React.FC = () => {
          
 
           {/* Headline - Serif Playfair Display font curved with SVG */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="w-full mb-4 max-w-xl md:max-w-2xl mx-auto flex justify-center"
-          >
+          <div className="w-full mb-4 max-w-xl md:max-w-2xl mx-auto flex justify-center">
             <h1 className="sr-only">Nhà sạch mèo thơm, Bát sạch Ngon Cơm</h1>
             <svg viewBox="0 0 600 200" className="w-full overflow-visible fill-white select-none">
               <path id="curve-line-1" d="M 20,90 Q 300,30 580,90" fill="none" />
@@ -62,17 +57,12 @@ export const Hero: React.FC = () => {
                 </textPath>
               </text>
             </svg>
-          </motion.div>
+          </div>
  
           {/* Subtext with highlight accents */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base md:text-lg text-white/80 mb-6 max-w-xl leading-relaxed font-sans text-center mx-auto"
-          >
+          <p className="text-base md:text-lg text-white/80 mb-6 max-w-xl leading-relaxed font-sans text-center mx-auto">
             Giải phóng <span className="font-black text-brand-yellow">100% sức lao động</span> với <span className="font-black text-white">Petkit Pura Max 2</span>. Hệ thống tự động lọc phân thông minh, xịt khử mùi chủ động Pura Air và bảo vệ mèo cưng tuyệt đối với <span className="font-black text-white">12 cảm biến an toàn</span>.
-          </motion.p>
+          </p>
  
           {/* Actions with SVG path animation */}
           <motion.div
@@ -140,12 +130,7 @@ export const Hero: React.FC = () => {
 
         {/* Right Side Content - Floating Overlapping Product Image */}
         <div className="lg:col-span-5 relative flex justify-center lg:justify-end z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[580px] flex items-center justify-center"
-          >
+          <div className="relative w-full max-w-[580px] flex items-center justify-center">
             <img 
               src="/src/assets/Petkit/hero-cat.webp" 
               alt="Petkit Pura Max 2 - Máy Dọn Vệ Sinh Mèo Thông Minh Tự Động" 
@@ -156,7 +141,7 @@ export const Hero: React.FC = () => {
               loading="eager"
               decoding="sync"
             />
-          </motion.div>
+          </div>
         </div>
 
       </div>
